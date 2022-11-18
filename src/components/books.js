@@ -5,7 +5,7 @@ export class Books extends React.Component{
     render(){
         return this.props.books.map(
             (book)=>{
-                return <BookItem book={book} key={book.isbn}></BookItem>
+                return <BookItem book={book} key={book._id}></BookItem>
             }
         );
     }
