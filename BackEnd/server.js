@@ -34,7 +34,7 @@ const bookSchema = new mongoose.Schema({
   author: String
 });
 
-const bookModel = mongoose.model('Booksgdfgdfgdfgsss', bookSchema);
+const bookModel = mongoose.model('fdgdfgdfgdfg', bookSchema);
 
 app.post('/api/books',(req,res)=>{
   console.log(req.body);
@@ -68,6 +68,13 @@ app.put('/api/book/:id', (req, res)=>{
     (error,data)=>{
       res.send(data);
     })
+})
+
+app.delete('/api/book/:id',(req, res)=>{
+  console.log('Deleting: '+req.params.id);
+  bookModel.findByIdAndDelete({_id:req.params.id},(error,data)=>{
+    res.send(data);
+  })
 })
 
 app.listen(port, () => {
